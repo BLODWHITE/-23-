@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Site</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    /* Giriş Efekti */
+    #intro {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background-color: red;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+    #intro h1 {
+      font-size: 150px;
+      color: white;
+      font-family: Arial, sans-serif;
+      animation: fadeInOut 3s forwards;
+    }
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.5); }
+    }
+    /* Arkaplan */
+    #content {
+      display: none;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .video-section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; /* Videolar sol tarafa hizalanıyor */
+      padding: 20px;
+      color: white;
+    }
+    .video-item {
+      margin-bottom: 15px; /* Videolar arasında boşluk */
+    }
+    iframe {
+      width: 300px; /* Küçük boyutlu video */
+      height: 170px;
+      margin-right: 10px;
+    }
+    h2 {
+      font-size: 18px; /* Başlık boyutu */
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      setTimeout(() => {
+        document.getElementById('intro').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+      }, 3000); // 3 saniye sonra siteye geçiş
+    };
+  </script>
+</head>
+<body>
+  <!-- Giriş Ekranı -->
+  <div id="intro">
+    <h1>BLODWHITE OFFICALL</h1>
+  </div>
+
+  <!-- Ana İçerik -->
+  <div id="content">
+    <div class="video-section">
+      <div class="video-item">
+        <h2>Başlık 1</h2>
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID1" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video-item">
+        <h2>Başlık 2</h2>
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID2" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video-item">
+        <h2>Başlık 3</h2>
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID3" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
